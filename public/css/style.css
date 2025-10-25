@@ -1,3 +1,4 @@
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -16,24 +17,60 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
+  padding: 12px 25px;
   background: linear-gradient(90deg, #111, #333);
   color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+/* Logo Animation */
+.navbar h1 {
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #ffb400, #ffffff, #ffb400);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Navbar links */
+.navbar nav {
+  display: flex;
+  gap: 25px;
+}
+
 .navbar nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 15px;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .navbar nav a:hover {
   color: #ffb400;
+}
+
+/* Menu icon */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ffb400;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: rotate(90deg);
 }
 
 /* Hero Section */
@@ -53,7 +90,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .hero-content {
@@ -62,13 +99,13 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
 }
 
 .btn {
@@ -79,14 +116,14 @@ body {
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
   background-color: #fff;
 }
 
-/* Sections */
+/* Section Base */
 .section {
   padding: 70px 10%;
   text-align: center;
@@ -106,66 +143,134 @@ body {
   border-radius: 10px;
   width: 280px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s;
+  transition: transform 0.4s ease;
 }
 
 .card:hover {
   transform: scale(1.05);
 }
 
-/* Contact Section */
-    .contact-section {
-      max-width: 1000px;
-      margin: 4rem auto;
-      background: white;
-      border-radius: 10px;
-      padding: 3rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .contact-form h2,
-    .contact-info h2 {
-      color: #111;
-      margin-bottom: 1rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      background: #0066ff;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-      width: 100%;
-    }
-    .contact-form button:hover {
-      background: #004fcc;
-    }
-    .contact-info p {
-      margin: 8px 0;
-      color: #333;
-    }
-    .contact-info i {
-      color: #0066ff;
-      margin-right: 10px;
-    }
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+  max-width: 1000px;
+  margin: 4rem auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  animation: fadeIn 1.2s ease-in-out;
+  overflow: hidden;
+}
+
+.contact-form h2,
+.contact-info h2 {
+  color: #111;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus glow */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0066ff;
+  box-shadow: 0 0 4px rgba(0, 102, 255, 0.3);
+}
+
+.contact-form button {
+  background: #0066ff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background: #004fcc;
+  transform: scale(1.02);
+}
+
+.contact-info p {
+  margin: 8px 0;
+  color: #333;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.contact-info strong {
+  color: #111;
+}
+
+/* ================= RESPONSIVE OPTIMIZATION ================= */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .contact-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+    border-radius: 0;
+    box-shadow: none;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-form,
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-form h2,
+  .contact-info h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  .contact-form button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  .contact-info {
+    text-align: left;
+    padding-top: 1rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+}
+
 
 /* Footer */
 footer {
@@ -176,24 +281,11 @@ footer {
 }
 
 /* Animations */
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-.slide-up {
-  animation: slideUp 1s ease-in-out forwards;
-}
-
-.slide-left {
-  animation: slideLeft 1s ease-in-out forwards;
-}
-
-.slide-right {
-  animation: slideRight 1s ease-in-out forwards;
-}
-
 .hidden {
   display: none;
+}
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
@@ -201,32 +293,66 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(50px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* Mobile Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 15px 25px;
+    position: relative;
+  }
 
-@keyframes slideLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+  .menu-toggle {
+    display: block;
+  }
 
-@keyframes slideRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-.navbar h1 {
-  font-size: 1.8rem;
-  background: linear-gradient(90deg, #ffb400, #ffffff, #ffb400);
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 4s linear infinite;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+  .navbar nav {
+    position: absolute;      /* Make menu overlay instead of pushing content */
+    top: 100%;               /* Just below the navbar */
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(20,20,20,0.95); /* Slightly transparent for classy effect */
+    border-top: 1px solid #444;
+    backdrop-filter: blur(0.1px);      /* Gentle blur effect */
+    z-index: 999;
+    animation: slideDown 0.3s ease-in-out;
+  }
 
-@keyframes shine {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
+  .navbar nav.show {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 15px 0;
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid #333;
+  }
+
+  .navbar nav a:last-child {
+    border-bottom: none;
+    color: #ffb400;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .contact-section {
+    padding: 2rem;
+  }
 }
