@@ -6,43 +6,40 @@
   <link rel="icon" type="image/png" href="https://i.ibb.co/N25TRSjj/yourlogo.png">
   <title>HKGN Fabrication</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+  <!-- Slider CSS -->
   <style>
-    /* ==== Gallery Slider ==== */
     .gallery-section {
       text-align: center;
-      padding: 60px 10%;
+      padding: 50px 10%;
       background: #fff;
     }
-
     .gallery-section h2 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       font-size: 1.8rem;
     }
-
     .slider {
       position: relative;
-      max-width: 800px;
+      max-width: 600px;
+      height: 350px;
       margin: 0 auto;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
-
     .slide-track {
       display: flex;
       transition: transform 0.6s ease-in-out;
     }
-
     .slide-track img {
       width: 100%;
-      height: 450px;
+      height: 350px;
       object-fit: cover;
+      flex-shrink: 0;
     }
-
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -50,238 +47,259 @@
       background: rgba(0,0,0,0.5);
       color: #fff;
       border: none;
-      font-size: 2rem;
+      font-size: 1.8rem;
       cursor: pointer;
-      padding: 10px 15px;
+      padding: 8px 14px;
       border-radius: 50%;
       transition: background 0.3s ease;
+      z-index: 10;
     }
-
     .nav-btn:hover {
       background: rgba(0,0,0,0.8);
     }
-
-    .prev { left: 15px; }
-    .next { right: 15px; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
 
     @media (max-width: 768px) {
-      .slide-track img { height: 300px; }
+      .slider {
+        max-width: 100%;
+        height: 250px;
+      }
+      .slide-track img {
+        height: 250px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <h1>
-      <img src="https://i.ibb.co/N25TRSjj/yourlogo.png" 
-           alt="HKGN Logo" 
-           width="55" 
-           height="55" 
-           style="vertical-align:middle; margin-right:8px;">
-      HKGN Fabrication
-    </h1>
-    <nav id="navMenu">
-      <a href="#home">Home</a>  
-      <a href="#services">Services</a>
-      <a href="#gallery">Our Works</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="menu-toggle" id="menuToggle">☰</div>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero" style="background-image: url('https://i.ibb.co/ksGpb9ry/Whats-App-Image-2025-11-10-at-15-02-27-be87e56e.jpg');">
-    <div class="hero-content fade-in">
-      <h1>Precision in Steel Fabrication</h1>
-      <p>Delivering high-quality Stainless Steel (SS) and Mild Steel (MS) solutions for all your construction and design needs.</p>
-      <a href="#contact" class="btn">Get a Free Quote</a>
+<!-- NAVBAR -->
+<header class="navbar">
+  <h1>
+    <img src="https://i.ibb.co/N25TRSjj/yourlogo.png" width="55" height="55" style="vertical-align:middle;margin-right:8px;">
+    HKGN Fabrication
+  </h1>
+
+  <nav id="navMenu">
+    <a href="#home">Home</a>  
+    <a href="#services">Services</a>
+    <a href="#gallery">Works</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero" style="background-image: url('https://t4.ftcdn.net/jpg/15/33/36/33/360_F_1533363365_uxBEnkxVIIN9BnhMnGWQdivj7WSZs5Mp.jpg');">
+  <div class="hero-content fade-in">
+    <h1>Precision in Steel Fabrication</h1>
+    <p>Delivering high-quality Stainless Steel (SS) and Mild Steel (MS) solutions for all your construction and design needs.</p>
+    <a href="#contact" class="btn">Get a Free Quote</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section slide-up">
+  <h2>Our Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Stainless Steel Fabrication</h3>
+      <p>Expert SS works including gates, railings, and decorative structures.</p>
     </div>
-  </section>
 
-  <!-- Services Section -->
-  <section id="services" class="section slide-up">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Stainless Steel Fabrication</h3>
-        <p>Expert SS works including gates, railings, and decorative structures built with perfection.</p>
-      </div>
-      <div class="card">
-        <h3>Mild Steel Fabrication</h3>
-        <p>Durable and reliable MS fabrication for industrial and residential applications.</p>
-      </div>
-      <div class="card">
-        <h3>Custom Design</h3>
-        <p>We bring your ideas to life with precise design and modern fabrication techniques.</p>
-      </div>
+    <div class="card">
+      <h3>Mild Steel Fabrication</h3>
+      <p>Durable MS fabrication for industrial and residential applications.</p>
     </div>
-  </section>
 
-<!-- Manual Image Slider -->
+    <div class="card">
+      <h3>Custom Design</h3>
+      <p>We bring your designs to life using advanced fabrication techniques.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDER SECTION -->
 <section id="gallery" class="gallery-section">
   <h2>Our Works</h2>
+
   <div class="slider">
     <div class="slide-track" id="slideTrack">
-      <img src="https://i.ibb.co/B5gjNbxq/Whats-App-Image-2025-11-10-at-15-04-02-d9cd5c44.jpg" alt="Fabrication 1">
-      <img src="https://i.ibb.co/609rZyDT/Whats-App-Image-2025-11-10-at-15-04-04-0df35036.jpg" alt="Fabrication 2">
-      <img src="https://i.ibb.co/hTHk49b/Whats-App-Image-2025-11-10-at-15-04-04-3acb879f.jpg" alt="Fabrication 3">
-      <img src="https://i.ibb.co/1GdkxwYQ/Whats-App-Image-2025-11-10-at-15-04-04-ea44639e.jpg" alt="Fabrication 4">
-      <img src="https://i.ibb.co/TBCXPkTy/Whats-App-Image-2025-11-10-at-15-04-05-789c3dd2.jpg" alt="Fabrication 5">
-      <img src="https://i.ibb.co/KzpDw3jM/Whats-App-Image-2025-11-10-at-15-04-05-0564861b.jpg" alt="Fabrication 6">
-      <img src="https://i.ibb.co/0pYH685C/Whats-App-Image-2025-11-10-at-15-04-05-de13749a.jpg" alt="Fabrication 7">
-      <img src="https://i.ibb.co/p9rR1vt/Whats-App-Image-2025-11-10-at-15-05-38-1716ff1a.jpg" alt="Fabrication 8">
-      <img src="https://i.ibb.co/kgVS3126/Whats-App-Image-2025-11-10-at-15-05-39-ab3584b7.jpg" alt="Fabrication 9">
-      <img src="https://i.ibb.co/39vK3SfF/Whats-App-Image-2025-11-10-at-15-05-39-b7a57617.jpg" alt="Fabrication 10">
-      <img src="https://i.ibb.co/qMf9cMJR/Whats-App-Image-2025-11-10-at-15-05-40-4fc01bdb.jpg" alt="Fabrication 11">
-      <img src="https://i.ibb.co/bjPHj3C5/Whats-App-Image-2025-11-10-at-15-05-40-be809372.jpg" alt="Fabrication 12">
-      <img src="https://i.ibb.co/zHX510f0/Whats-App-Image-2025-11-10-at-15-06-49-617baeba.jpg" alt="Fabrication 13">
-      <img src="https://i.ibb.co/nMPVFtTR/Whats-App-Image-2025-11-10-at-15-06-51-2612ddec.jpg" alt="Fabrication 14">
-      <img src="https://i.ibb.co/5XRnQp6G/Whats-App-Image-2025-11-10-at-15-06-52-0c263aaa.jpg" alt="Fabrication 15">
-      <img src="https://i.ibb.co/LX1dtH3w/Whats-App-Image-2025-11-10-at-15-06-52-ac5612fd.jpg" alt="Fabrication 16">
-      <img src="https://i.ibb.co/gLWcbF9g/Whats-App-Image-2025-11-10-at-15-06-52-ff1db0f9.jpg" alt="Fabrication 17">
-      <img src="https://i.ibb.co/zWQ3YVcd/Whats-App-Image-2025-11-10-at-15-06-53-3bcae436.jpg" alt="Fabrication 18">
-      <img src="https://i.ibb.co/FktHzKVr/Whats-App-Image-2025-11-10-at-15-06-53-79d3eb0f.jpg" alt="Fabrication 19">
-      <img src="https://i.ibb.co/mVgtRtrS/Whats-App-Image-2025-11-10-at-15-06-54-5a020b3d.jpg" alt="Fabrication 20">
-      <img src="https://i.ibb.co/ZjpBnJr/Whats-App-Image-2025-11-10-at-15-06-54-f7e52147.jpg" alt="Fabrication 21">
-      <img src="https://i.ibb.co/hFTV9QgT/Whats-App-Image-2025-11-10-at-15-06-55-da8f3699.jpg" alt="Fabrication 22">
+
+      <!-- All your 22 images -->
+      <img src="https://i.ibb.co/B5gjNbxq/Whats-App-Image-2025-11-10-at-15-04-02-d9cd5c44.jpg">
+      <img src="https://i.ibb.co/609rZyDT/Whats-App-Image-2025-11-10-at-15-04-04-0df35036.jpg">
+      <img src="https://i.ibb.co/hTHk49b/Whats-App-Image-2025-11-10-at-15-04-04-3acb879f.jpg">
+      <img src="https://i.ibb.co/1GdkxwYQ/Whats-App-Image-2025-11-10-at-15-04-04-ea44639e.jpg">
+      <img src="https://i.ibb.co/TBCXPkTy/Whats-App-Image-2025-11-10-at-15-04-05-789c3dd2.jpg">
+      <img src="https://i.ibb.co/KzpDw3jM/Whats-App-Image-2025-11-10-at-15-04-05-0564861b.jpg">
+      <img src="https://i.ibb.co/0pYH685C/Whats-App-Image-2025-11-10-at-15-04-05-de13749a.jpg">
+      <img src="https://i.ibb.co/p9rR1vt/Whats-App-Image-2025-11-10-at-15-05-38-1716ff1a.jpg">
+      <img src="https://i.ibb.co/kgVS3126/Whats-App-Image-2025-11-10-at-15-05-39-ab3584b7.jpg">
+      <img src="https://i.ibb.co/39vK3SfF/Whats-App-Image-2025-11-10-at-15-05-39-b7a57617.jpg">
+      <img src="https://i.ibb.co/qMf9cMJR/Whats-App-Image-2025-11-10-at-15-05-40-4fc01bdb.jpg">
+      <img src="https://i.ibb.co/bjPHj3C5/Whats-App-Image-2025-11-10-at-15-05-40-be809372.jpg">
+      <img src="https://i.ibb.co/zHX510f0/Whats-App-Image-2025-11-10-at-15-06-49-617baeba.jpg">
+      <img src="https://i.ibb.co/nMPVFtTR/Whats-App-Image-2025-11-10-at-15-06-51-2612ddec.jpg">
+      <img src="https://i.ibb.co/5XRnQp6G/Whats-App-Image-2025-11-10-at-15-06-52-0c263aaa.jpg">
+      <img src="https://i.ibb.co/LX1dtH3w/Whats-App-Image-2025-11-10-at-15-06-52-ac5612fd.jpg">
+      <img src="https://i.ibb.co/gLWcbF9g/Whats-App-Image-2025-11-10-at-15-06-52-ff1db0f9.jpg">
+      <img src="https://i.ibb.co/zWQ3YVcd/Whats-App-Image-2025-11-10-at-15-06-53-3bcae436.jpg">
+      <img src="https://i.ibb.co/FktHzKVr/Whats-App-Image-2025-11-10-at-15-06-53-79d3eb0f.jpg">
+      <img src="https://i.ibb.co/mVgtRtrS/Whats-App-Image-2025-11-10-at-15-06-54-5a020b3d.jpg">
+      <img src="https://i.ibb.co/ZjpBnJr/Whats-App-Image-2025-11-10-at-15-06-54-f7e52147.jpg">
+      <img src="https://i.ibb.co/hFTV9QgT/Whats-App-Image-2025-11-10-at-15-06-55-da8f3699.jpg">
+
     </div>
+
     <button class="nav-btn prev" id="prevBtn">❮</button>
     <button class="nav-btn next" id="nextBtn">❯</button>
   </div>
 </section>
 
-<style>
-  /* ==== Gallery Slider ==== */
-  .gallery-section {
-    text-align: center;
-    padding: 50px 10%;
-    background: #fff;
-  }
+<!-- ABOUT -->
+<section id="about" class="section slide-left">
+  <h2>About Us</h2>
+  <p>We deliver top-quality Stainless Steel & Mild Steel fabrication services with high precision.</p>
 
-  .gallery-section h2 {
-    margin-bottom: 25px;
-    font-size: 1.8rem;
-    color: #222;
-  }
+  <button id="toggleBtn" class="btn">Know More</button>
 
-  .slider {
-    position: relative;
-    max-width: 600px;  /* smaller frame */
-    height: 350px;     /* reduced height */
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  }
+  <p id="toggleText" class="hidden">
+    Our journey began with a mission to redefine quality in metal works.
+  </p>
+</section>
 
-  .slide-track {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
-  }
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-form">
+    <h2>Send us a Message</h2>
 
-  .slide-track img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
+    <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSf1RQ9xZyjlV5cL8mfLCTCM-SNweKzWq_aO80pTp541VZwN6A/formResponse" method="POST" target="hidden_iframe">
+      <input type="text" name="entry.413587998" id="name" placeholder="Your Name" required>
+      <input type="email" name="entry.496582744" id="email" placeholder="Your Email" required>
+      <input type="text" name="entry.1377097740" id="phone" placeholder="Phone Number (10 digits)" maxlength="10" required>
+      <textarea name="entry.1084732470" id="message" rows="5" placeholder="Message (max 150 chars)" maxlength="150"></textarea>
+      <button type="submit">Submit</button>
+    </form>
 
-  .nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    padding: 8px 14px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-    z-index: 10;
-  }
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+  </div>
 
-  .nav-btn:hover {
-    background: rgba(0,0,0,0.8);
-  }
+<!-- Add Font Awesome CDN in your <head> if not already added -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  .prev { left: 10px; }
-  .next { right: 10px; }
+<div class="contact-info">
+  <h2>Contact Information</h2>
 
-  @media (max-width: 768px) {
-    .slider {
-      max-width: 90%;
-      height: 250px;
-    }
-    .slide-track img { height: 250px; }
-  }
-</style>
+  <p><i class="fas fa-map-marker-alt" style="color:#007bff; margin-right:8px;"></i>
+    <strong>Address:</strong> 1st Cross, A Block, Singasandra, Bengaluru, Karnataka – 560068
+  </p>
+
+  <p><i class="fas fa-map" style="color:#007bff; margin-right:8px;"></i>
+    <a href="https://share.google/gDh7c3RuaWATOB1vv" target="_blank" style="color:#007bff;">View on Google Maps</a>
+  </p>
+
+  <p><i class="fas fa-phone" style="color:#007bff; margin-right:8px;"></i>
+    <a href="tel:+919008045677" style="color:#007bff;">+91 90080 45677</a>
+  </p>
+
+  <p><i class="fas fa-envelope" style="color:#007bff; margin-right:8px;"></i>
+    <a href="mailto:hkgnfabrication@gmail.com" style="color:#007bff;">hkgnfabrication@gmail.com</a>
+  </p>
+
+  <p><i class="fab fa-whatsapp" style="color:green; margin-right:8px;"></i>
+    <a href="https://wa.me/919008045677" target="_blank" style="color:green;">WhatsApp</a>
+  </p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 HKGN Fabrication. All Rights Reserved.</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-  const slideTrack = document.getElementById('slideTrack');
-  const slides = document.querySelectorAll('#slideTrack img');
-  const totalSlides = slides.length;
-  let currentIndex = 0;
+/* MENU TOGGLE */
+document.getElementById("menuToggle").onclick = () => {
+  document.getElementById("navMenu").classList.toggle("show");
+};
 
-  const showSlide = (index) => {
-    slideTrack.style.transform = `translateX(-${index * 100}%)`;
-  };
+/* KNOW MORE TOGGLE */
+const toggleBtn = document.getElementById("toggleBtn");
+const toggleText = document.getElementById("toggleText");
 
-  // Manual controls
-  document.getElementById('nextBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
-    resetAutoSlide();
-  });
+toggleBtn.addEventListener("click", () => {
+  toggleText.classList.toggle("hidden");
+  toggleBtn.textContent = toggleText.classList.contains("hidden") ? "Know More" : "Show Less";
+});
 
-  document.getElementById('prevBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    showSlide(currentIndex);
-    resetAutoSlide();
-  });
+/* IMAGE SLIDER LOGIC */
+const slideTrack = document.getElementById("slideTrack");
+const slides = document.querySelectorAll("#slideTrack img");
+let currentIndex = 0;
 
-  // Auto slide every 3 seconds
-  let autoSlide = setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
+function showSlide(i) {
+  slideTrack.style.transform = `translateX(-${i * 100}%)`;
+}
+
+// Manual
+document.getElementById("nextBtn").onclick = () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+  resetAuto();
+};
+document.getElementById("prevBtn").onclick = () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+  resetAuto();
+};
+
+// Auto slide
+let auto = setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}, 3000);
+
+// Reset auto slide when clicked
+function resetAuto() {
+  clearInterval(auto);
+  auto = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
     showSlide(currentIndex);
   }, 3000);
+}
 
-  // Reset timer when manually clicked
-  function resetAutoSlide() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      showSlide(currentIndex);
-    }, 3000);
+/* CONTACT FORM VALIDATION */
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  const phone = document.getElementById("phone").value;
+
+  if (phone.length !== 10) {
+    e.preventDefault();
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Phone Number!",
+      text: "Phone number must be exactly 10 digits."
+    });
+  } else {
+    setTimeout(() => {
+      this.reset();
+      Swal.fire({
+        icon: "success",
+        title: "Submitted Successfully!",
+        showConfirmButton: false,
+        timer: 1800
+      });
+    }, 500);
   }
+});
 </script>
 
-
-  <!-- About + Contact + Footer (same as before) -->
-  <!-- ... keep your existing About, Contact, and Footer sections ... -->
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    // Menu toggle
-    document.getElementById("menuToggle").onclick = () =>
-      document.getElementById("navMenu").classList.toggle("show");
-
-    // Image slider logic
-    const slideTrack = document.getElementById('slideTrack');
-    const slides = document.querySelectorAll('#slideTrack img');
-    let currentIndex = 0;
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      slideTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      slideTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-    });
-  </script>
 </body>
 </html>
